@@ -1,0 +1,39 @@
+/* 1. Global CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Global Brand Variables */
+:root {
+  --color-background: #ffffff;
+  --color-text-main: #1a1a1a;
+  --color-text-muted: #4a4a4a;
+  --color-accent-gold: #bfa173;
+  --color-accent-gold-hover: #a68a5f;
+}
+
+/* 3. Base Typography */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  /* Uses the Montserrat font you loaded in layout.tsx */
+  font-family: var(--font-montserrat), system-ui, sans-serif; 
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Heading Typography */
+h1, h2, h3, h4, h5, h6 {
+  /* Uses the Playfair Display font for that expensive editorial look */
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 400; /* Keeps the headings crisp and elegant */
+  line-height: 1.2;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

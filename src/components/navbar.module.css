@@ -1,0 +1,66 @@
+.header {
+  width: 100%;
+  background-color: #fcfcfc; /* Matches the solid top bar in the image */
+  border-bottom: 1px solid #eaeaea;
+  padding: 1rem 0;
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left Column */
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #1a1a1a;
+  letter-spacing: 0.05em;
+  flex: 1; /* Helps push the center links exactly to the middle */
+}
+
+/* Center Column */
+.navLinks {
+  display: flex;
+  gap: 2.5rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #bfa173; /* A premium architectural gold/tan hover state */
+}
+/* Replace the old .ctaButton flex rules with this */
+.ctaWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ctaButton {
+  background-color: #bfa173;
+  color: #ffffff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.ctaButton:hover {
+  background-color: #a68a5f;
+}
