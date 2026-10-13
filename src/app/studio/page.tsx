@@ -1,11 +1,11 @@
 import styles from "./studio.module.css";
-
+import Image from "next/image";
 export default function Studio() {
   const team = [
-    { name: "Elena Rostova", role: "Principal Architect" },
-    { name: "Marcus Chen", role: "Head of Interior Design" },
-    { name: "Sarah Jenkins", role: "Landscape Architect" },
-    { name: "David Ojo", role: "Structural Lead" },
+    { name: "Elena Rostova", role: "Principal Architect", image:"https://images.unsplash.com/photo-1706272971886-20f2fadf577e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" },
+    { name: "Marcus Chen", role: "Head of Interior Design", image:"https://images.unsplash.com/photo-1774821171205-4e4b5352666d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" },
+    { name: "Sarah Jenkins", role: "Landscape Architect", image:"https://images.unsplash.com/photo-1685703206477-aa1df00a1f0e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"},
+    { name: "David Ojo", role: "Structural Lead", image:"https://images.unsplash.com/photo-1616805765352-beedbad46b2a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" },
   ];
 
   return (
@@ -21,7 +21,16 @@ export default function Studio() {
         <div className={styles.teamGrid}>
           {team.map((member) => (
             <div key={member.name} className={styles.teamMember}>
-              <div className={styles.avatarPlaceholder}></div>
+              {/* The new constrained image wrapper */}
+              <div className={styles.imageWrapper}>
+                <Image 
+                  src={member.image} 
+                  alt={member.name} 
+                  fill 
+                  className={styles.memberImage}
+                  unoptimized // Keeps your local server from timing out on external images
+                />
+              </div>
               <h3 className={styles.memberName}>{member.name}</h3>
               <p className={styles.memberRole}>{member.role}</p>
             </div>
