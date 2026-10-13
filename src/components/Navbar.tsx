@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import styles from './navbar.module.css';
+import { Cinzel } from 'next/font/google';
+
+// const logoFont = Cinzel({ subsets: ['latin'], weight: '600' });
 
 export default function Navbar() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
         {/* Left: Logo */}
-        <Link href="/" className={styles.logo}>
+        <Link href="/" className={`${styles.logo}`}>
           Lumen Designs
         </Link>
 

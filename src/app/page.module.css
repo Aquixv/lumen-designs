@@ -1,9 +1,110 @@
-.heroSection {
+/* --- GLOBAL ANIMATIONS --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- SECTION 1: DARK HERO --- */
+.darkHero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Creates the dark tint over the image */
+  background-color: rgba(20, 25, 30, 0.75); 
+}
+
+.darkHeroBg {
+  z-index: -1;
+  object-fit: cover;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 2rem;
+  z-index: 1;
+}
+
+.awardBadge {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.darkHeadline {
+  font-size: 5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-playfair), serif;
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+.darkSubtext {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  color: #e0e0e0;
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.btnPrimary {
+  background-color: var(--color-accent-gold);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background-color: var(--color-accent-gold-hover);
+}
+
+.btnSecondary {
+  border: 1px solid white;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btnSecondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- SECTION 2: ASYMMETRIC GRID --- */
+.secondarySection {
   min-height: 80vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  padding: 4rem 2rem;
+  padding: 8rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   align-items: center;
@@ -17,20 +118,18 @@
 
 .headline {
   font-size: 4rem;
-  font-weight: 300;
+  font-family: var(--font-playfair), serif;
   line-height: 1.1;
-  color: #111;
-  letter-spacing: -0.02em;
+  color: var(--color-text-main);
 }
 
 .subtext {
   font-size: 1.125rem;
-  color: #666;
+  color: var(--color-text-muted);
   max-width: 80%;
   line-height: 1.6;
 }
 
-/* The expensive staggered image look */
 .imageGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -38,7 +137,7 @@
   position: relative;
 }
 
-.mainImage {
+/* .mainImage {
   grid-column: 1 / -1;
   aspect-ratio: 16 / 9;
   object-fit: cover;
@@ -51,19 +150,45 @@
   object-fit: cover;
   border-radius: 4px;
   width: 100%;
-}
+} */
 
-/* Shift the second sub-image down slightly for asymmetry */
-.subImage:last-child {
+/* .subImage:last-child {
   transform: translateY(2rem);
+} */
+/* 1. Initial Hidden State */
+.textBlock, 
+.mainImage, 
+.subImage {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* Add slight delays so the images cascade in */
+.mainImage { transition-delay: 0.1s; }
+.subImage:nth-of-type(2) { transition-delay: 0.2s; }
+.subImage:last-child { transition-delay: 0.3s; }
+
+/* 2. The Reveal State */
+.secondarySection.inView .textBlock,
+.secondarySection.inView .mainImage,
+.secondarySection.inView .subImage {
+  opacity: 1;
+  transform: translateY(0);
+}
 @media (max-width: 900px) {
-  .heroSection {
+  .secondarySection {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
   .subImage:last-child {
     transform: none;
+  }
+  .darkHeadline {
+    font-size: 3.5rem;
+  }
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
   }
 }

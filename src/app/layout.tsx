@@ -3,13 +3,12 @@ import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-// The elegant serif for your big headings
+
 const playfair = Playfair_Display({ 
   subsets: ["latin"],
   variable: "--font-playfair" 
 });
 
-// The clean sans-serif for body text and navbar
 const montserrat = Montserrat({ 
   subsets: ["latin"],
   variable: "--font-montserrat" 
