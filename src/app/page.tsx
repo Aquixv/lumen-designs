@@ -171,9 +171,6 @@ useEffect(() => {
           Start a Project
         </Link>
       </section>
-
-      {/* FOOTER */}
-      {/* FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.footerGrid}>
           
@@ -193,7 +190,6 @@ useEffect(() => {
             <h4 className={styles.footerHeading}>Headquarters</h4>
             <ul className={styles.footerList}>
               <li>123 Architecture Blvd</li>
-              <li>Ogbomosho, Oyo State</li>
               <li className={styles.footerSpacing}>Mon-Fri: 9am-6pm</li>
             </ul>
           </div>

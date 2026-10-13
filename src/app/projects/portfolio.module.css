@@ -1,0 +1,80 @@
+.portfolioMain {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+}
+
+.portfolioHeader {
+  margin-bottom: 4rem;
+}
+
+.pageTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: 4rem;
+  color: var(--color-text-main);
+  margin-bottom: 1rem;
+}
+
+.pageSubtitle {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  max-width: 600px;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background-color: var(--color-background);
+  border: 1px solid #eaeaea; /* The crisp editorial boundary */
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-8px); /* Lifts the entire card off the grid */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04); /* Ultra-soft premium shadow */
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-bottom: 1px solid #eaeaea; /* Separates image from text */
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.projectCard:hover .cardImage {
+  transform: scale(1.05); /* Slight zoom syncs with the upward lift */
+}
+
+.cardContent {
+  padding: 2rem; /* Gives the typography room to breathe */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.75rem;
+  color: var(--color-text-main);
+  line-height: 1.2;
+}
+
+.cardLocation {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

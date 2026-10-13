@@ -1,0 +1,53 @@
+.projectMain {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+}
+
+.projectHeader {
+  margin-bottom: 3rem;
+}
+
+.projectTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.projectMeta {
+  display: flex;
+  gap: 1rem;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.projectBrief {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.projectBrief h2 {
+  font-family: var(--font-playfair), serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.projectBrief p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
