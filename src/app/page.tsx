@@ -1,22 +1,22 @@
 "use client";
 
 import Image from 'next/image';
+import { FaLinkedin, FaTwitter, FaPinterest, FaRegCopyright } from 'react-icons/fa';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import styles from './page.module.css';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+   const [year, setYear] = useState(2026);
 
   useEffect(() => {
-    // Set up the watcher
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When 20% of the section is visible, trigger the animation
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Stop watching so it only animates once
+          observer.disconnect();
         }
       },
       { threshold: 0.2 } 
@@ -25,7 +25,9 @@ export default function Home() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
+useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
   return (
     <main>
       <section className={styles.darkHero}>
@@ -36,11 +38,10 @@ export default function Home() {
           className={styles.darkHeroBg}
           priority
         />
-        
-        {/* The overlay content matching Inspi.png */}
+
         <div className={styles.heroContent}>
           <div className={styles.awardBadge}>
-            Best Architecture Award - 2024
+            Best Architecture Award 2024
           </div>
           
           <h1 className={styles.darkHeadline}>
@@ -58,7 +59,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: Your Original Asymmetric Layout */}
+      {/* SECTION 2*/}
       <section 
         ref={sectionRef} 
         className={`${styles.secondarySection} ${isVisible ? styles.inView : ''}`}
@@ -92,6 +93,84 @@ export default function Home() {
           />
         </div>
       </section>
+      {/* Disciplines */}
+      <section className={styles.disciplinesSection}>
+        <h2 className={styles.disciplinesTitle}>Our Expertise</h2>
+        
+        <div className={styles.disciplinesGrid}>
+          <div className={styles.disciplineItem}>
+            <span className={styles.disciplineNumber}>01</span>
+            <h3 className={styles.disciplineName}>Architecture</h3>
+            <p className={styles.disciplineDesc}>
+              Comprehensive spatial design focusing on structural integrity, natural light, and environmental context.
+            </p>
+          </div>
+
+          <div className={styles.disciplineItem}>
+            <span className={styles.disciplineNumber}>02</span>
+            <h3 className={styles.disciplineName}>Interior Design</h3>
+            <p className={styles.disciplineDesc}>
+              Curated interior spaces with bespoke materiality that perfectly harmonize with the architectural shell.
+            </p>
+          </div>
+
+          <div className={styles.disciplineItem}>
+            <span className={styles.disciplineNumber}>03</span>
+            <h3 className={styles.disciplineName}>Landscape</h3>
+            <p className={styles.disciplineDesc}>
+              Blurring the boundary between the built environment and the natural world through intentional exterior design.
+            </p>
+          </div>
+        </div>
+      </section>
+      {/*Project Showcase */}
+      <section className={styles.showcaseSection}>
+        <div className={styles.showcaseHeader}>
+          <h2 className={styles.showcaseTitle}>Selected Works</h2>
+          <Link href="/projects" className={styles.viewAllLink}>
+            View Full Portfolio <span></span>
+          </Link>
+        </div>
+        
+        <div className={styles.showcaseImageContainer}>
+          <Image 
+            src="https://images.unsplash.com/photo-1687120270050-de10bcc518e2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" 
+            alt="Featured Project: The Glass House"
+            fill
+            className={styles.showcaseImage}
+          />
+          <div className={styles.showcaseOverlay}>
+            <h3>The Glass Pavilion</h3>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: The Pre-Footer CTA */}
+      <section className={styles.ctaSection}>
+        <h2 className={styles.ctaHeadline}>Ready to realize your vision?</h2>
+        <p className={styles.ctaSubtext}>Engage with our studio to begin the conversation.</p>
+        <Link href="/contact" className={styles.ctaButtonLarge}>
+          Start a Project
+        </Link>
+      </section>
+
+      {/* FOOTER */}
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <div className={styles.footerBrand}>
+            <h4 className= {styles.logo}>Lumen Designs</h4>
+           <p className={styles.copyright}>
+      <FaRegCopyright className={styles.icon} />
+      <span>{year}, All Rights Reserved.</span>
+    </p> 
+          </div>
+          <div className={styles.footerLinks}>
+            <Link href="#"><FaLinkedin/></Link>
+            <Link href="#"><FaTwitter/></Link>
+            <Link href="#"><FaPinterest/></Link>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
