@@ -1,0 +1,114 @@
+.studioMain {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+}
+
+.header {
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-playfair), serif;
+  font-size: 4rem;
+  color: var(--color-text-main);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 1rem;
+}
+
+/* Team Grid */
+.teamSection {
+  margin-bottom: 8rem;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: column;
+}
+
+/* A sleek gray box instead of images to save your bandwidth */
+.avatarPlaceholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: #f5f5f5;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.memberName {
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  margin-bottom: 0.25rem;
+}
+
+.memberRole {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Process List */
+.processList {
+  display: flex;
+  flex-direction: column;
+}
+
+.processItem {
+  display: flex;
+  gap: 4rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.processItem span {
+  font-family: var(--font-playfair), serif;
+  font-size: 3rem;
+  color: var(--color-accent-gold);
+  line-height: 1;
+}
+
+.processItem h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-main);
+}
+
+.processItem p {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .processItem {
+    gap: 2rem;
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+}

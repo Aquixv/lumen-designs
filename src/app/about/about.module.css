@@ -1,0 +1,78 @@
+.aboutMain {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+  min-height: 80vh;
+}
+
+.aboutHeader {
+  margin-bottom: 6rem;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-playfair), serif;
+  font-size: 4rem;
+  color: var(--color-text-main);
+}
+
+.splitLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+.manifesto h2 {
+  font-family: var(--font-playfair), serif;
+  font-size: 2.5rem;
+  line-height: 1.3;
+  color: var(--color-text-main);
+  position: sticky;
+  top: 8rem; /* Keeps the manifesto pinned while the right side scrolls */
+}
+
+.details p {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.stats {
+  display: flex;
+  gap: 4rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eaeaea;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statItem strong {
+  font-family: var(--font-playfair), serif;
+  font-size: 3rem;
+  color: var(--color-accent-gold);
+  line-height: 1;
+}
+
+.statItem span {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .splitLayout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .manifesto h2 {
+    position: static;
+  }
+}
