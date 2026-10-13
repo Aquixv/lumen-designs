@@ -16,6 +16,7 @@ export default function Navbar() {
         {/* Center: Navigation Links */}
         <div className={styles.navLinks}>
           <Link href="/" className={styles.link}>Home</Link>
+          <Link href="/about" className={styles.link}>About</Link>
           <Link href="/studio" className={styles.link}>Studio</Link>
           <Link href="/projects" className={styles.link}>Projects</Link>
         </div>
@@ -24,7 +25,7 @@ export default function Navbar() {
         {/* Right: Call to Action */}
 <div className={styles.ctaWrapper}>
   <Link href="/contact" className={styles.ctaButton}>
-    Get in Touch
+    Contact Us
   </Link>
 </div>
       </nav>

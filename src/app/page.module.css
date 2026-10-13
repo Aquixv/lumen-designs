@@ -263,16 +263,20 @@
 .viewAllLink:hover {
   opacity: 0.8;
 }
-
+.showcaseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
 .showcaseImageContainer {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 60vh; /* Changed from 70vh */
   border-radius: 4px;
   overflow: hidden;
-  group: hover;
+  /* group: hover isn't standard CSS, removing for safety */
 }
-
 .showcaseImage {
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -300,9 +304,9 @@
 
 /* --- SECTION 5: CTA --- */
 .ctaSection {
-  background-color: var(--color-text-main); /* Dark gray/black */
+  background-color: #2e2e2edc; /* Slightly lighter than pure black */
   color: white;
-  padding: 8rem 2rem;
+  padding: 6rem 2rem 5rem 2rem; /* Reduced bottom padding to pull footer up */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -334,45 +338,6 @@
 
 .ctaButtonLarge:hover {
   background-color: var(--color-accent-gold-hover);
-}
-
-/* --- FOOTER --- */
-.footer {
-  background-color: var(--color-text-main); /* Slightly darker than CTA for contrast */
-  color: #888;
-  padding: 4rem 2rem;
-  /* border-top: 1px solid #333; */
-}
-
-.footerContent {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footerBrand h4 {
-  color: white;
-  font-size: 1.25rem;
-  margin-bottom: 0.25rem;
-  letter-spacing: 0.1em;
-}
-
-.footerLinks {
-  display: flex;
-  gap: 2rem;
-}
-
-.footerLinks a {
-  color: #888;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-}
-
-.footerLinks a:hover {
-  color: white;
 }
 .copyright {
   display: flex;
@@ -409,11 +374,112 @@ font-family: var(--font-playfair), Georgia, serif;
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+  .showcaseGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
-@media (max-width: 768px) {
-  .footerContent {
+}
+.footer {
+  background-color: #111111;
+  color: #888;
+  padding: 6rem 2rem 2rem 2rem; /* Generous top padding for breathing room */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* The 4-column directory grid */
+.footerGrid {
+  max-width: 1400px;
+  margin: 0 auto 4rem auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.footerHeading {
+  font-family: var(--font-playfair), serif; /* Gives the headers that editorial weight */
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.footerList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerList li, .footerList a {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footerList a:hover {
+  color: white;
+}
+
+.footerSpacing {
+  margin-top: 1rem;
+}
+
+.footerSocials {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.footerSocials a {
+  color: white;
+  font-size: 1.2rem;
+  transition: opacity 0.2s ease;
+}
+
+.footerSocials a:hover {
+  opacity: 0.7;
+}
+
+/* The bottom logo and copyright bar */
+.footerBottom {
+  /* margin: 0 auto; */
+  /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-family: var(--font-playfair), serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* Mobile stacking */
+@media (max-width: 900px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .footerBottom {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     text-align: center;
   }
 }

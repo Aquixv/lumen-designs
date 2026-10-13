@@ -5,8 +5,9 @@
   padding: 1rem 0;
 }
 
+/* navbar.module.css */
 .nav {
-  max-width: 1200px;
+  max-width: 1400px; /* Increased from 1200px to push elements to the edges */
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -17,8 +18,8 @@
 /* Left Column */
 .logo {
   font-weight: 700;
-  font-size: 1.25rem;
-  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.4rem;
+  font-family: var(--font-helvetica), Georgia, serif;
   text-decoration: none;
   color: #1a1a1a;
   letter-spacing: 0.05em;
