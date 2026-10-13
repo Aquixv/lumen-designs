@@ -69,3 +69,94 @@
 .ctaButton:hover {
   background-color: #a68a5f;
 }
+/* Add this to your existing desktop styles to manage the new wrapper */
+.menuContainer {
+  display: flex;
+  flex: 2; /* Takes up the remaining space next to the logo */
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Hide the hamburger button on desktop */
+.mobileToggle {
+  display: none;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .nav {
+    position: relative; /* Anchors the absolute dropdown menu */
+  }
+
+  /* Show the hamburger button */
+  .mobileToggle {
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 50;
+  }
+
+  /* Create the 3-line hamburger icon using pure CSS */
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-text-main);
+    position: relative;
+    transition: background-color 0.2s ease;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-text-main);
+    left: 0;
+    transition: transform 0.2s ease, top 0.2s ease;
+  }
+
+  .hamburger::before { top: -6px; }
+  .hamburger::after { top: 6px; }
+
+  /* Animate hamburger into an 'X' when open */
+  .hamburgerOpen { background-color: transparent; }
+  .hamburgerOpen::before { top: 0; transform: rotate(45deg); }
+  .hamburgerOpen::after { top: 0; transform: rotate(-45deg); }
+
+  /* Hide the menu container by default on mobile */
+  .menuContainer {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Drops it directly below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    padding: 2rem;
+    border-bottom: 1px solid #eaeaea;
+    gap: 2rem;
+    z-index: 40;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Show the menu container when toggled */
+  .menuOpen {
+    display: flex;
+  }
+
+  /* Stack the links vertically */
+  .navLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* Center the button */
+  .ctaWrapper {
+    justify-content: center;
+  }
+}
