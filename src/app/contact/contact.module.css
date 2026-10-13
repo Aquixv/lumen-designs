@@ -149,3 +149,8 @@
     padding: 2rem;
   }
 }
+@media (max-width: 768px) {
+  .title { font-size: 2.5rem; word-break: break-word; }
+  .subtitle { font-size: 1rem; }
+  .contactContainer { grid-template-columns: 1fr; gap: 3rem; }
+}
